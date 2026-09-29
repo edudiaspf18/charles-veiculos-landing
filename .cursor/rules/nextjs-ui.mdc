@@ -44,6 +44,25 @@ function Card({ user }: CardProps) {
 </button>
 ```
 
+# Design: World-Class UI/UX (avoid generic AI tropes)
+
+Build premium, hand-crafted, unique interfaces.
+
+1. NO AI CLICHÉS: no purple/blue gradients, no heavy glowing drop-shadows, no floating centered glassmorphism cards.
+2. AESTHETIC: "Linear/Vercel" minimalism or "Editorial" design. Clean lines, high contrast, sophisticated simplicity.
+3. COLORS: strict monochromatic base (Zinc, Slate, or pure Black/White). ONE purposeful accent color. No highly saturated primaries for backgrounds.
+4. BORDERS: crisp, subtle 1px borders (`border-zinc-200` / `border-zinc-800`).
+5. SHADOWS: sparingly. Prefer `shadow-sm` or flat design with borders. Never heavy, fuzzy shadows.
+6. TYPOGRAPHY: dramatic hierarchy. `tracking-tight` on large bold headings, relaxed leading for body, `text-zinc-500` for secondary text.
+7. SPACING: generous whitespace, asymmetrical layouts, large gaps (`gap-8`, `py-12`, `py-24`). No cramped, boxy designs.
+8. ANIMATIONS: subtle micro-interactions (`transition-all duration-200 ease-in-out`). No bouncy/springy animations.
+
+# Banco de dados
+
+- Todos os bancos são PostgreSQL, criados e gerenciados no pgAdmin.
+- Conectar via `DATABASE_URL` no `.env`. Não usar Docker para o banco.
+- Antes de usar, verificar se o banco existe no servidor PostgreSQL gerenciado pelo pgAdmin (`psql -lqt`). Se não existir, criá-lo nesse mesmo servidor (`createdb` / `CREATE DATABASE`) para que apareça no pgAdmin.
+
 # Code Review: Tech Lead rigoroso
 
 Quando o usuário enviar código para revisão, agir como Tech Lead revisando um PR. NÃO reescrever o código inteiro de imediato.
