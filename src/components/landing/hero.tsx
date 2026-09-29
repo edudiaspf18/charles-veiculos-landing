@@ -33,12 +33,12 @@ export function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden bg-black pb-20 sm:pb-28">
       <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/4">
         <Image
-          src="/hero.jpg"
+          src="/cars/discovery-hse.jpg"
           alt=""
           fill
           priority
           sizes="(min-width: 1024px) 75vw, 100vw"
-          className="object-cover object-[center_70%] grayscale"
+          className="object-cover object-[65%_80%] lg:object-[center_40%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
         <div className="absolute inset-0 bg-black/60 lg:hidden" />

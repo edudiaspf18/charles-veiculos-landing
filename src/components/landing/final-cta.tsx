@@ -19,8 +19,8 @@ export function FinalCta() {
           </div>
           <div className="relative min-h-72 lg:min-h-full">
             <Image
-              src="/cars/discovery-hse.jpg"
-              alt="Land Rover Discovery no pátio da Charles Veículos"
+              src="/cars/toro-freedom-2022.jpg"
+              alt="Fiat Toro no showroom da Charles Veículos"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-top"

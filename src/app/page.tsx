@@ -4,6 +4,7 @@ import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 import { Footer } from "@/components/landing/footer";
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
+import { Location } from "@/components/landing/location";
 import { Showcase } from "@/components/landing/showcase";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <Showcase />
         <Benefits />
         <FinalCta />
+        <Location />
       </main>
       <Footer />
       <FloatingWhatsApp />
