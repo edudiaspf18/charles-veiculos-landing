@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { BENEFITS } from "@/data/landing";
+import { trackAttributes } from "@/lib/analytics";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { focusRing } from "./cta-link";
@@ -27,6 +28,7 @@ export function Benefits() {
                 href={whatsappUrl(message)}
                 target="_blank"
                 rel="noopener noreferrer"
+                {...trackAttributes("benefit")}
                 className={cn(
                   "group flex h-full flex-col rounded-2xl border border-white/10 bg-black p-7 transition-all duration-200 ease-in-out hover:border-white/25",
                   focusRing,

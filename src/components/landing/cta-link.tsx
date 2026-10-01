@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
+import { trackAttributes } from "@/lib/analytics";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -12,9 +13,12 @@ interface CtaLinkProps {
   message?: string;
   variant?: "primary" | "outline";
   className?: string;
+  /** Origem do clique enviada ao GA4 (ex.: "hero", "location"). */
+  trackSource: string;
+  vehicleId?: string;
 }
 
-export function CtaLink({ children, message, variant = "primary", className }: CtaLinkProps) {
+export function CtaLink({ children, message, variant = "primary", className, trackSource, vehicleId }: CtaLinkProps) {
   const isPrimary = variant === "primary";
 
   return (
@@ -22,6 +26,7 @@ export function CtaLink({ children, message, variant = "primary", className }: C
       href={whatsappUrl(message)}
       target="_blank"
       rel="noopener noreferrer"
+      {...trackAttributes(trackSource, vehicleId)}
       className={cn(
         "group inline-flex h-12 items-center gap-3 rounded-full pl-1.5 pr-6 text-sm font-medium transition-all duration-200 ease-in-out",
         isPrimary

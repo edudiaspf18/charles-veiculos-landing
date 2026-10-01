@@ -1,12 +1,9 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
 
+import { MAP_EMBED_URL, MAP_URL, STORE_ADDRESS } from "@/data/store";
 import { cn } from "@/lib/utils";
 import { CtaLink, focusRing } from "./cta-link";
-
-const ADDRESS = "Av. 10, Qd. 05, Lt. 14, Nº 205, Jardim Progresso, Anápolis - GO, 75063-330";
-const MAP_QUERY = encodeURIComponent("Charles Veículos, Av. 10, 205, Jardim Progresso, Anápolis - GO, 75063-330");
-const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&z=16&output=embed`;
-const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`;
+import { OpeningHours } from "./opening-hours";
 
 export function Location() {
   return (
@@ -19,10 +16,13 @@ export function Location() {
           </h2>
           <p className="mt-6 flex items-start gap-3 leading-relaxed text-zinc-400">
             <MapPin className="mt-1 size-5 shrink-0 text-red-600" aria-hidden />
-            {ADDRESS}
+            {STORE_ADDRESS}
           </p>
+          <div className="mt-8">
+            <OpeningHours />
+          </div>
           <div className="mt-10 flex flex-col items-start gap-6">
-            <CtaLink message="Olá! Vim pelo site e quero agendar uma visita à loja.">Agendar visita</CtaLink>
+            <CtaLink trackSource="location_visit" message="Olá! Vim pelo site e quero agendar uma visita à loja.">Agendar visita</CtaLink>
             <a
               href={MAP_URL}
               target="_blank"

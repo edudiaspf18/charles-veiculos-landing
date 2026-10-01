@@ -57,8 +57,8 @@ export function Hero() {
             Seminovos revisados e com procedência. Escolha, tire suas dúvidas e negocie direto pelo WhatsApp, sem burocracia.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <CtaLink message="Olá! Vim pelo site e quero ver as ofertas disponíveis.">Ver Ofertas no WhatsApp</CtaLink>
-            <CtaLink variant="outline" message="Olá! Vim pelo site e quero avaliar meu carro usado como entrada.">
+            <CtaLink trackSource="hero_offers" message="Olá! Vim pelo site e quero ver as ofertas disponíveis.">Ver Ofertas no WhatsApp</CtaLink>
+            <CtaLink trackSource="hero_trade_in" variant="outline" message="Olá! Vim pelo site e quero avaliar meu carro usado como entrada.">
               Avaliar meu usado
             </CtaLink>
           </div>

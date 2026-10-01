@@ -15,7 +15,7 @@ export function FinalCta() {
             <p className="mt-5 max-w-md leading-relaxed text-zinc-400">
               Simulação de financiamento, avaliação do seu usado e agendamento de visita, tudo pelo WhatsApp.
             </p>
-            <CtaLink className="mt-10 self-start">Chamar no WhatsApp</CtaLink>
+            <CtaLink trackSource="final_cta" className="mt-10 self-start">Chamar no WhatsApp</CtaLink>
           </div>
           <div className="relative min-h-72 lg:min-h-full">
             <Image

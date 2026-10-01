@@ -1,4 +1,5 @@
 import { Benefits } from "@/components/landing/benefits";
+import { Faq } from "@/components/landing/faq";
 import { FinalCta } from "@/components/landing/final-cta";
 import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 import { Footer } from "@/components/landing/footer";
@@ -16,6 +17,7 @@ export default function Home() {
         <Showcase />
         <Benefits />
         <FinalCta />
+        <Faq />
         <Location />
       </main>
       <Footer />

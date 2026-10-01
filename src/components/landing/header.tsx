@@ -1,14 +1,16 @@
 import { ArrowUpRight } from "lucide-react";
 
+import { trackAttributes } from "@/lib/analytics";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { focusRing } from "./cta-link";
 import { Logo } from "./logo";
 
 const NAV = [
-  { href: "#estoque", label: "Estoque" },
-  { href: "#diferenciais", label: "Diferenciais" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#estoque", label: "Estoque" },
+  { href: "/#diferenciais", label: "Diferenciais" },
+  { href: "/#duvidas", label: "Dúvidas" },
+  { href: "/#localizacao", label: "Localização" },
 ];
 
 export function Header() {
@@ -31,6 +33,7 @@ export function Header() {
           href={whatsappUrl()}
           target="_blank"
           rel="noopener noreferrer"
+          {...trackAttributes("header")}
           className={cn(
             "inline-flex h-10 items-center gap-2 rounded-full border border-white/25 px-5 text-sm font-medium text-white transition-all duration-200 ease-in-out hover:border-white/60 hover:bg-white/5",
             focusRing,

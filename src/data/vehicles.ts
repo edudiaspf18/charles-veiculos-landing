@@ -7,7 +7,10 @@ export interface Vehicle {
   engine: string;
   transmission: string;
   price: number;
+  /** Foto de capa, usada no card e na imagem de compartilhamento. */
   image: string;
+  /** Fotos extras exibidas na galeria da página do veículo. */
+  gallery?: string[];
   tag?: string;
 }
 
@@ -34,6 +37,18 @@ export const VEHICLES: Vehicle[] = [
   { id: "etios-cross", brand: "Toyota", model: "Etios HB Cross 1.5", year: "2013/14", km: 192512, engine: "1.5 Flex", transmission: "Manual", price: 47900, image: "/cars/etios-cross.jpg" },
   { id: "argo-drive-fipe", brand: "Fiat", model: "Argo Drive 1.0", year: "2025/26", km: 56828, engine: "1.0 Flex", transmission: "Manual", price: 70900, image: "/cars/argo-drive-fipe.jpg", tag: "R$ 10 mil abaixo da FIPE" },
 ];
+
+export function getVehicle(id: string): Vehicle | undefined {
+  return VEHICLES.find((vehicle) => vehicle.id === id);
+}
+
+export function vehicleName(vehicle: Vehicle): string {
+  return `${vehicle.brand} ${vehicle.model} ${vehicle.year}`;
+}
+
+export function vehicleImages(vehicle: Vehicle): string[] {
+  return [vehicle.image, ...(vehicle.gallery ?? [])];
+}
 
 export function vehicleMessage(vehicle: Vehicle, price: string): string {
   return `Olá! Vim pelo site e tenho interesse no ${vehicle.brand} ${vehicle.model} ${vehicle.year} anunciado por ${price}. Ainda está disponível?`;

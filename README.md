@@ -7,7 +7,12 @@ Landing page da **Charles Veículos & Locadora**, loja de seminovos em Anápolis
 ## Funcionalidades
 
 - **Vitrine de estoque:** 21 veículos reais com foto, ano, km, motor, câmbio e preço.
+- **Filtros e ordenação:** por marca, faixa de preço e câmbio; ordena por preço, ano e km.
+- **Página por veículo** (`/estoque/[id]`): ficha completa, galeria e imagem Open Graph própria (foto + preço) para o preview do link no WhatsApp.
 - **CTAs de WhatsApp:** cada carro e cada benefício abre o WhatsApp com mensagem pronta.
+- **Rastreamento no GA4:** evento `whatsapp_click` com origem e carro clicado.
+- **FAQ** e **horário de funcionamento** com selo "Aberto agora".
+- **SEO:** `sitemap.xml` e `robots.txt` gerados.
 - **Botão flutuante de WhatsApp** visível em toda a página.
 - **Localização:** mapa do Google Maps com a loja física.
 - **Metadados sociais:** ícones do app e imagem Open Graph para preview de link.
@@ -31,6 +36,15 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000).
 
+## Variáveis de ambiente
+
+Copie `.env.example` para `.env.local`.
+
+| Variável | Para quê |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Domínio de produção (sitemap, canonical e imagens Open Graph) |
+| `NEXT_PUBLIC_GA_ID` | ID de medição do GA4 (`G-XXXXXXX`). Vazio = analytics desligado |
+
 ## Scripts
 
 | Comando | O que faz |
@@ -52,6 +66,8 @@ src/
 │   └── ui/               # componentes shadcn/ui
 ├── data/
 │   ├── vehicles.ts       # estoque de veículos
+│   ├── store.ts          # endereço, mapa e horário de funcionamento
+│   ├── faq.ts            # perguntas frequentes
 │   └── landing.ts        # benefícios e números da home
 └── lib/
     ├── whatsapp.ts       # número, links do WhatsApp e formatadores
@@ -73,12 +89,13 @@ eslint-rules/             # plugin ESLint local de qualidade
 
 - `km` é opcional.
 - `tag` é opcional e mostra um selo no card (ex.: `"Blindada"`).
+- `gallery` é opcional: lista de fotos extras (`["/cars/onix-lt2-2.jpg"]`) exibidas na página do veículo.
 - O contador de "Carros no estoque" atualiza sozinho.
 
 Para trocar o número de WhatsApp ou o Instagram, edite `src/lib/whatsapp.ts`.
 
 ## Deploy
 
-O projeto é 100% estático. Funciona na [Vercel](https://vercel.com) sem configuração extra.
+O projeto é gerado de forma estática (todas as páginas de veículos incluídas). Funciona na [Vercel](https://vercel.com) sem configuração extra.
 
-Antes do deploy, defina `metadataBase` em `src/app/layout.tsx` com o domínio de produção. Sem ele, a imagem Open Graph não aparece no preview de links.
+Antes do deploy, defina `NEXT_PUBLIC_SITE_URL` (e `NEXT_PUBLIC_GA_ID`) nas variáveis de ambiente da Vercel. Sem a URL do site, a imagem Open Graph não aparece no preview de links.

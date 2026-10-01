@@ -1,6 +1,8 @@
 import { AtSign, MapPin, Phone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { STORE_ADDRESS } from "@/data/store";
+import { trackAttributes } from "@/lib/analytics";
 import { INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { focusRing } from "./cta-link";
@@ -18,6 +20,7 @@ function FooterLink({ href, icon: Icon, label }: FooterLinkProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      {...trackAttributes("footer")}
       className={cn("inline-flex items-center gap-2 rounded-sm text-sm text-zinc-300 transition-all duration-200 ease-in-out hover:text-white", focusRing)}
     >
       <Icon className="size-4 text-zinc-500" aria-hidden />
@@ -36,7 +39,7 @@ export function Footer() {
         </div>
         <address className="flex items-start gap-2 text-sm not-italic leading-relaxed text-zinc-400">
           <MapPin className="mt-0.5 size-4 shrink-0 text-zinc-500" aria-hidden />
-          Av. 10, Qd. 05, Lt. 14, Nº 205, Jardim Progresso, Anápolis - GO, 75063-330
+          {STORE_ADDRESS}
         </address>
         <div className="flex flex-col gap-3 md:items-end">
           <FooterLink href={INSTAGRAM_URL} icon={AtSign} label="charles_veiculos01" />
