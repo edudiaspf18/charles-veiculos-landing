@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Charles Veículos — Landing Page
 
-## Getting Started
+Landing page da **Charles Veículos & Locadora**, loja de seminovos em Anápolis (GO). O site mostra o estoque e leva o visitante direto ao WhatsApp da loja.
 
-First, run the development server:
+![Preview](src/app/opengraph-image.jpg)
+
+## Funcionalidades
+
+- **Vitrine de estoque:** 21 veículos reais com foto, ano, km, motor, câmbio e preço.
+- **CTAs de WhatsApp:** cada carro e cada benefício abre o WhatsApp com mensagem pronta.
+- **Botão flutuante de WhatsApp** visível em toda a página.
+- **Localização:** mapa do Google Maps com a loja física.
+- **Metadados sociais:** ícones do app e imagem Open Graph para preview de link.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Server Components)
+- React 19 + TypeScript
+- Tailwind CSS v4 + [shadcn/ui](https://ui.shadcn.com)
+- Ícones [lucide-react](https://lucide.dev)
+- ESLint com regras próprias de qualidade (máximo de 350 linhas por arquivo)
+
+## Como rodar
+
+Requisito: Node.js 20+.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | O que faz |
+| --- | --- |
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run start` | Serve o build de produção |
+| `npm run lint` | ESLint |
+| `npm run lint:types` | ESLint com regras que usam tipos |
+| `npm run typecheck` | Checagem de tipos (`tsc --noEmit`) |
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                  # layout, página, ícones e imagem Open Graph
+├── components/
+│   ├── landing/          # seções: header, hero, showcase, benefits, final-cta, location, footer
+│   └── ui/               # componentes shadcn/ui
+├── data/
+│   ├── vehicles.ts       # estoque de veículos
+│   └── landing.ts        # benefícios e números da home
+└── lib/
+    ├── whatsapp.ts       # número, links do WhatsApp e formatadores
+    └── utils.ts          # cn()
+public/
+├── cars/                 # fotos dos veículos
+└── logo-charles.png
+eslint-rules/             # plugin ESLint local de qualidade
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Atualizar o estoque
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Coloque a foto do carro em `public/cars/<id>.jpg`.
+2. Adicione o veículo em `src/data/vehicles.ts`:
 
-## Deploy on Vercel
+```ts
+{ id: "onix-lt2", brand: "Chevrolet", model: "Onix LT2 1.0", year: "2025/25", km: 35955, engine: "1.0 Flex", transmission: "Manual", price: 72900, image: "/cars/onix-lt2.jpg" },
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `km` é opcional.
+- `tag` é opcional e mostra um selo no card (ex.: `"Blindada"`).
+- O contador de "Carros no estoque" atualiza sozinho.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para trocar o número de WhatsApp ou o Instagram, edite `src/lib/whatsapp.ts`.
+
+## Deploy
+
+O projeto é 100% estático. Funciona na [Vercel](https://vercel.com) sem configuração extra.
+
+Antes do deploy, defina `metadataBase` em `src/app/layout.tsx` com o domínio de produção. Sem ele, a imagem Open Graph não aparece no preview de links.
