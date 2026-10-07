@@ -33,7 +33,7 @@ const DEALER_JSON_LD = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-black font-sans text-zinc-100 antialiased">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(DEALER_JSON_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(DEALER_JSON_LD).replace(/</g, "\\u003c") }} />
       <Header />
       <main>
         <Hero />
