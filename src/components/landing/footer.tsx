@@ -36,7 +36,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
           <Logo className="h-16" />
-          <p className="mt-5 text-sm text-zinc-500">CNPJ: 00.000.000/0001-00</p>
+          <p className="mt-5 text-sm text-zinc-500">CNPJ: 10.866.807/0001-65</p>
           <Link
             href="/privacidade"
             className={cn("mt-3 inline-block rounded-sm text-sm text-zinc-400 underline underline-offset-4 transition-all duration-200 ease-in-out hover:text-white", focusRing)}
