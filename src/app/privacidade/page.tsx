@@ -91,7 +91,7 @@ export default function PrivacyPage() {
 
           <Section title="Cookies e serviços de terceiros">
             <p>
-              O Google Analytics usa cookies para distinguir visitantes e só é carregado depois que você clica em "Aceitar" no
+              O Google Analytics usa cookies para distinguir visitantes e só é carregado depois que você clica em &ldquo;Aceitar&rdquo; no
               aviso de cookies. Se recusar, nenhum cookie de análise é criado. O mapa da seção de localização é incorporado do
               Google Maps, que pode registrar o seu acesso. Os links para WhatsApp e Instagram levam a sites de terceiros, com
               políticas próprias.
