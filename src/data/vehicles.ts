@@ -36,6 +36,13 @@ export const VEHICLES: Vehicle[] = [
   { id: "toro-freedom-2022", brand: "Fiat", model: "Toro Freedom Turbo AT6", year: "2022/22", km: 105096, engine: "1.3 Turbo Flex", transmission: "Automático", price: 102900, image: "/cars/toro-freedom-2022.jpg" },
   { id: "etios-cross", brand: "Toyota", model: "Etios HB Cross 1.5", year: "2013/14", km: 192512, engine: "1.5 Flex", transmission: "Manual", price: 47900, image: "/cars/etios-cross.jpg" },
   { id: "argo-drive-fipe", brand: "Fiat", model: "Argo Drive 1.0", year: "2025/26", km: 56828, engine: "1.0 Flex", transmission: "Manual", price: 70900, image: "/cars/argo-drive-fipe.jpg", tag: "R$ 10 mil abaixo da FIPE" },
+  { id: "bmw-x1-s20i", brand: "BMW", model: "X1 S20i ActiveFlex", year: "2018/18", km: 79781, engine: "2.0 Turbo Flex", transmission: "Automático", price: 109900, image: "/cars/bmw-x1-s20i.jpg" },
+  { id: "miura-1-8", brand: "Miura", model: "1.8 AP 5 Marchas", year: "1984/84", engine: "1.8 Gasolina", transmission: "Manual", price: 111900, image: "/cars/miura-1-8.jpg", tag: "Relíquia" },
+  { id: "mobi-trekking", brand: "Fiat", model: "Mobi Trekking 1.0", year: "2024/25", km: 46849, engine: "1.0 Flex", transmission: "Manual", price: 66900, image: "/cars/mobi-trekking.jpg" },
+  { id: "onix-ltz", brand: "Chevrolet", model: "Onix LTZ 1.4", year: "2019/19", km: 78847, engine: "1.4 Flex", transmission: "Automático", price: 69900, image: "/cars/onix-ltz.jpg" },
+  { id: "strada-endurance", brand: "Fiat", model: "Strada Endurance CS 1.4", year: "2022/23", engine: "1.4 Flex", transmission: "Manual", price: 74900, image: "/cars/strada-endurance.jpg" },
+  { id: "sportage-ex", brand: "Kia", model: "Sportage EX 2.0", year: "2014/14", km: 152992, engine: "2.0 Flex", transmission: "Automático", price: 78900, image: "/cars/sportage-ex.jpg" },
+  { id: "fiorino-endurance", brand: "Fiat", model: "Fiorino Endurance 1.4", year: "2023/24", km: 109109, engine: "1.4 Flex", transmission: "Manual", price: 89900, image: "/cars/fiorino-endurance.jpg" },
 ];
 
 export function getVehicle(id: string): Vehicle | undefined {

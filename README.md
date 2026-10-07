@@ -6,7 +6,7 @@ Landing page da **Charles Veículos & Locadora**, loja de seminovos em Anápolis
 
 ## Funcionalidades
 
-- **Vitrine de estoque:** 21 veículos reais com foto, ano, km, motor, câmbio e preço.
+- **Vitrine de estoque:** 28 veículos reais com foto, ano, km, motor, câmbio e preço.
 - **Filtros e ordenação:** por marca, faixa de preço e câmbio; ordena por preço, ano e km.
 - **Página por veículo** (`/estoque/[id]`): ficha completa, galeria e imagem Open Graph própria (foto + preço) para o preview do link no WhatsApp.
 - **CTAs de WhatsApp:** cada carro e cada benefício abre o WhatsApp com mensagem pronta.
