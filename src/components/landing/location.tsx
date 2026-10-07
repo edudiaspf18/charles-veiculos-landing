@@ -8,7 +8,7 @@ import { OpeningHours } from "./opening-hours";
 export function Location() {
   return (
     <section id="localizacao" className="border-t border-white/10 bg-black">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:py-32">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:py-32">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Visite a loja</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
@@ -28,7 +28,7 @@ export function Location() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-sm text-sm text-zinc-400 underline-offset-4 transition-all duration-200 ease-in-out hover:text-white hover:underline",
+                "inline-flex h-11 items-center gap-1.5 rounded-sm text-sm text-zinc-400 underline-offset-4 transition-all duration-200 ease-in-out hover:text-white hover:underline",
                 focusRing,
               )}
             >
@@ -38,7 +38,8 @@ export function Location() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-white/10">
+        {/* Sem mapa no celular: só endereço, horário e link para o Google Maps. */}
+        <div className="hidden overflow-hidden rounded-3xl border border-white/10 md:block">
           <iframe
             title="Mapa da Charles Veículos em Anápolis"
             src={MAP_EMBED_URL}

@@ -37,9 +37,17 @@ function FilterSelect<T extends string>({ className, label, value, options, onCh
         <SelectTrigger className="h-11 w-full data-[size=default]:h-11 rounded-full border-white/15 bg-black px-4 text-zinc-100 transition-all duration-200 ease-in-out hover:border-white/40 dark:bg-black dark:hover:bg-black">
           <SelectValue />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent
+          alignItemWithTrigger={false}
+          sideOffset={8}
+          className="rounded-2xl border border-white/15 bg-zinc-950 p-1.5 text-zinc-300 shadow-sm ring-0"
+        >
           {options.map((option) => (
-            <SelectItem key={option.value} value={option.value}>
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              className="h-11 rounded-xl px-3 text-sm text-zinc-300 transition-all duration-200 ease-in-out data-highlighted:bg-white/10 data-highlighted:text-white data-selected:text-white not-data-[variant=destructive]:focus:**:text-white sm:h-10"
+            >
               {option.label}
             </SelectItem>
           ))}
