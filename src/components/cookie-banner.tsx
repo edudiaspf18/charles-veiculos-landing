@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-import { GA_ID } from "@/lib/analytics";
 import { setConsent, useConsent } from "@/lib/consent";
 import { cn } from "@/lib/utils";
 import { focusRing } from "./landing/cta-link";
@@ -12,7 +11,7 @@ const buttonBase =
 
 export function CookieBanner() {
   const consent = useConsent();
-  if (!GA_ID || consent !== "unset") return null;
+  if (consent !== "unset") return null;
 
   return (
     <div
@@ -49,7 +48,7 @@ export function CookieBanner() {
 /** Reabre o banner para o visitante mudar a escolha. */
 export function CookiePreferencesButton() {
   const consent = useConsent();
-  if (!GA_ID || consent === "loading") return null;
+  if (consent === "loading") return null;
 
   return (
     <button
