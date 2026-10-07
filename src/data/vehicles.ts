@@ -17,7 +17,6 @@ export interface Vehicle {
 export const VEHICLES: Vehicle[] = [
   { id: "creta-limited", brand: "Hyundai", model: "Creta Limited", year: "2023/24", km: 39000, engine: "1.0 Turbo", transmission: "Automático", price: 122900, image: "/cars/creta-limited.jpg" },
   { id: "discovery-hse", brand: "Land Rover", model: "Discovery TD6 HSE Blindada", year: "2019/20", km: 98631, engine: "3.0 Diesel", transmission: "Automático", price: 279900, image: "/cars/discovery-hse.jpg", tag: "Blindada" },
-  { id: "argo-drive-2024", brand: "Fiat", model: "Argo Drive 1.0", year: "2024/25", km: 52398, engine: "1.0 Flex", transmission: "Manual", price: 72900, image: "/cars/argo-drive-2024.jpg" },
   { id: "creta-comfort", brand: "Hyundai", model: "Creta Comfort", year: "2023/24", km: 69440, engine: "1.0 Turbo", transmission: "Automático", price: 112900, image: "/cars/creta-comfort.jpg" },
   { id: "nivus-highline", brand: "Volkswagen", model: "Nivus Highline TSI", year: "2022/22", km: 70369, engine: "1.0 Turbo TSI", transmission: "Automático", price: 109900, image: "/cars/nivus-highline.jpg" },
   { id: "f1000-s-mwm", brand: "Ford", model: "F1000 S MWM Diesel", year: "1991/91", engine: "3.9 MWM Diesel", transmission: "Manual", price: 89900, image: "/cars/f1000-s-mwm.jpg", tag: "Clássico" },
@@ -35,7 +34,6 @@ export const VEHICLES: Vehicle[] = [
   { id: "ka-se", brand: "Ford", model: "Ka SE 1.0", year: "2018/19", km: 127642, engine: "1.0 Flex", transmission: "Manual", price: 44900, image: "/cars/ka-se.jpg" },
   { id: "toro-freedom-2022", brand: "Fiat", model: "Toro Freedom Turbo AT6", year: "2022/22", km: 105096, engine: "1.3 Turbo Flex", transmission: "Automático", price: 102900, image: "/cars/toro-freedom-2022.jpg" },
   { id: "etios-cross", brand: "Toyota", model: "Etios HB Cross 1.5", year: "2013/14", km: 192512, engine: "1.5 Flex", transmission: "Manual", price: 47900, image: "/cars/etios-cross.jpg" },
-  { id: "argo-drive-fipe", brand: "Fiat", model: "Argo Drive 1.0", year: "2025/26", km: 56828, engine: "1.0 Flex", transmission: "Manual", price: 70900, image: "/cars/argo-drive-fipe.jpg", tag: "R$ 10 mil abaixo da FIPE" },
   { id: "bmw-x1-s20i", brand: "BMW", model: "X1 S20i ActiveFlex", year: "2018/18", km: 79781, engine: "2.0 Turbo Flex", transmission: "Automático", price: 109900, image: "/cars/bmw-x1-s20i.jpg" },
   { id: "miura-1-8", brand: "Miura", model: "1.8 AP 5 Marchas", year: "1984/84", engine: "1.8 Gasolina", transmission: "Manual", price: 111900, image: "/cars/miura-1-8.jpg", tag: "Relíquia" },
   { id: "mobi-trekking", brand: "Fiat", model: "Mobi Trekking 1.0", year: "2024/25", km: 46849, engine: "1.0 Flex", transmission: "Manual", price: 66900, image: "/cars/mobi-trekking.jpg" },
