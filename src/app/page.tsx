@@ -35,7 +35,7 @@ export default function Home() {
     <div className="min-h-screen bg-black font-sans text-zinc-100 antialiased">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(DEALER_JSON_LD).replace(/</g, "\\u003c") }} />
       <Header />
-      <main>
+      <main id="conteudo">
         <Hero />
         <Showcase />
         <Benefits />

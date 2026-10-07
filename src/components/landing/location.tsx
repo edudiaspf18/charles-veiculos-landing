@@ -1,8 +1,9 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
 
-import { MAP_EMBED_URL, MAP_URL, STORE_ADDRESS } from "@/data/store";
+import { MAP_URL, STORE_ADDRESS } from "@/data/store";
 import { cn } from "@/lib/utils";
 import { CtaLink, focusRing } from "./cta-link";
+import { MapEmbed } from "./map-embed";
 import { OpeningHours } from "./opening-hours";
 
 export function Location() {
@@ -10,7 +11,7 @@ export function Location() {
     <section id="localizacao" className="border-t border-white/10 bg-black">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:py-32">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Visite a loja</p>
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-500">Visite a loja</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Venha conhecer nosso pátio em Anápolis.
           </h2>
@@ -40,13 +41,7 @@ export function Location() {
 
         {/* Sem mapa no celular: só endereço, horário e link para o Google Maps. */}
         <div className="hidden overflow-hidden rounded-3xl border border-white/10 md:block">
-          <iframe
-            title="Mapa da Charles Veículos em Anápolis"
-            src={MAP_EMBED_URL}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="aspect-[4/3] w-full grayscale invert-[0.92] contrast-[0.9] lg:aspect-[16/11]"
-          />
+          <MapEmbed />
         </div>
       </div>
     </section>

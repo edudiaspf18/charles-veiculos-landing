@@ -16,11 +16,11 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-black font-sans text-zinc-100 antialiased">
       <Header />
-      <main className="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-5 pb-24 pt-40 sm:px-8">
-        <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Erro 404</p>
+      <main id="conteudo" className="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-5 pb-24 pt-40 sm:px-8">
+        <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-500">Erro 404</p>
         <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl">
           Esta página não existe
-          <span className="block text-zinc-500">ou o carro já foi vendido.</span>
+          <span className="block text-zinc-400">ou o carro já foi vendido.</span>
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-zinc-400">
           Veja o estoque atualizado ou fale direto com a loja pelo WhatsApp.

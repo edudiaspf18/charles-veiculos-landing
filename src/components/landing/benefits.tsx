@@ -37,7 +37,7 @@ export function Benefits() {
                 <Icon className="size-6 text-zinc-300" aria-hidden />
                 <h3 className="mt-16 font-semibold tracking-tight text-white">{title}</h3>
                 <div className="mt-2 flex items-end justify-between gap-4">
-                  <p className="text-sm leading-relaxed text-zinc-500">{description}</p>
+                  <p className="text-sm leading-relaxed text-zinc-400">{description}</p>
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-red-600/60 text-red-500 transition-all duration-200 ease-in-out group-hover:bg-red-600 group-hover:text-white">
                     <ArrowRight className="size-4" aria-hidden />
                   </span>

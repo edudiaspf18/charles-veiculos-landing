@@ -47,7 +47,7 @@ interface FactProps {
 function Fact({ label, value }: FactProps) {
   return (
     <div className="flex flex-col gap-1 border-t border-white/10 py-4">
-      <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</dt>
+      <dt className="text-xs uppercase tracking-[0.25em] text-zinc-400">{label}</dt>
       <dd className="font-medium text-white">{value}</dd>
     </div>
   );
@@ -65,7 +65,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
   return (
     <div className="min-h-screen bg-black font-sans text-zinc-100 antialiased">
       <Header />
-      <main className="mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8 sm:pt-40">
+      <main id="conteudo" className="mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8 sm:pt-40">
         <Link
           href="/#estoque"
           className={cn(
@@ -82,7 +82,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
 
           <div className="lg:sticky lg:top-12 lg:self-start">
             <VehicleBadges vehicle={vehicle} />
-            <p className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-500">{vehicle.brand}</p>
+            <p className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-400">{vehicle.brand}</p>
             <h1 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">{vehicle.model}</h1>
             <p className="mt-6 text-5xl font-semibold tracking-tight text-white">{price}</p>
             <div className="mt-6">
@@ -109,7 +109,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
               <Fact label="Câmbio" value={vehicle.transmission} />
               {vehicle.km !== undefined && <Fact label="Quilometragem" value={`${kilometers.format(vehicle.km)} km`} />}
             </dl>
-            <p className="mt-6 text-xs leading-relaxed text-zinc-600">
+            <p className="mt-6 text-xs leading-relaxed text-zinc-400">
               Preço e disponibilidade sujeitos a alteração sem aviso prévio. Confirme as condições pelo WhatsApp.
             </p>
           </div>

@@ -1,3 +1,5 @@
+export const STORE_NAME = "Charles Veículos & Locadora";
+export const STORE_CNPJ = "10.866.807/0001-65";
 export const STORE_ADDRESS = "Av. 10, Qd. 05, Lt. 14, Nº 205, Jardim Progresso, Anápolis - GO, 75063-330";
 
 const MAP_QUERY = encodeURIComponent("Charles Veículos, Av. 10, 205, Jardim Progresso, Anápolis - GO, 75063-330");

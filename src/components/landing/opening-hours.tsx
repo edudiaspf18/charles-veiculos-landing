@@ -61,7 +61,7 @@ export function OpeningHours() {
         ))}
         <div className="flex justify-between gap-4">
           <dt className="text-zinc-400">{CLOSED_LABEL}</dt>
-          <dd className="text-zinc-500">Fechado</dd>
+          <dd className="text-zinc-400">Fechado</dd>
         </div>
       </dl>
     </div>

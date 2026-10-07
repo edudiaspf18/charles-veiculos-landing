@@ -7,7 +7,7 @@ export function Faq() {
     <section id="duvidas" className="border-t border-white/10 bg-black">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:py-32">
         <div className="lg:sticky lg:top-12 lg:self-start">
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Dúvidas frequentes</p>
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-500">Dúvidas frequentes</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Perguntas que a gente mais recebe.
           </h2>

@@ -8,7 +8,7 @@ export function Showcase() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:py-32">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Estoque · {VEHICLES.length} veículos</p>
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-500">Estoque · {VEHICLES.length} veículos</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Nosso estoque</h2>
             <p className="mt-4 leading-relaxed text-zinc-400">
               Todos os carros do nosso pátio. Toque em um carro para ver a ficha completa, ou chame no WhatsApp para mais fotos, vídeos e condições.

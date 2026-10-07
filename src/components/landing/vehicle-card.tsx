@@ -17,7 +17,7 @@ interface SpecProps {
 function Spec({ icon: Icon, label }: SpecProps) {
   return (
     <li className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
-      <Icon className="size-3.5 text-zinc-500" aria-hidden />
+      <Icon className="size-3.5 text-zinc-400" aria-hidden />
       {label}
     </li>
   );
@@ -67,7 +67,7 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">{vehicle.brand}</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-zinc-400">{vehicle.brand}</p>
         <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
           {/* O ::after estende o link para o card inteiro; o botão de WhatsApp fica acima dele. */}
           <Link href={vehiclePath(vehicle)} className={cn("rounded-sm after:absolute after:inset-0", focusRing)}>

@@ -32,7 +32,7 @@ interface FilterSelectProps<T extends string> {
 function FilterSelect<T extends string>({ className, label, value, options, onChange }: FilterSelectProps<T>) {
   return (
     <label className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <span className="text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</span>
+      <span className="text-xs uppercase tracking-[0.25em] text-zinc-400">{label}</span>
       <Select items={options} value={value} onValueChange={(next) => next !== null && onChange(next)}>
         <SelectTrigger className="h-11 w-full data-[size=default]:h-11 rounded-full border-white/15 bg-black px-4 text-zinc-100 transition-all duration-200 ease-in-out hover:border-white/40 dark:bg-black dark:hover:bg-black">
           <SelectValue />
@@ -68,7 +68,7 @@ interface SegmentedProps<T extends string> {
 function Segmented<T extends string>({ className, label, value, options, onChange }: SegmentedProps<T>) {
   return (
     <div role="group" aria-label={label} className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <span aria-hidden className="text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</span>
+      <span aria-hidden className="text-xs uppercase tracking-[0.25em] text-zinc-400">{label}</span>
       <div className="grid h-11 grid-cols-3 rounded-full border border-white/15 p-1">
         {options.map((option) => (
           <button
