@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { GoogleAnalytics, sendGAEvent } from "@next/third-parties/google";
 
 import { GA_ID, WHATSAPP_CLICK_EVENT } from "@/lib/analytics";
+import { useConsent } from "@/lib/consent";
 
 const WHATSAPP_LINK = 'a[href^="https://wa.me/"]';
 
@@ -29,8 +30,10 @@ function WhatsAppClickTracker() {
   return null;
 }
 
+// GA4 só carrega depois do aceite explícito (LGPD).
 export function Analytics() {
-  if (!GA_ID) return null;
+  const consent = useConsent();
+  if (!GA_ID || consent !== "granted") return null;
 
   return (
     <>

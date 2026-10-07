@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { CookiePreferencesButton } from "@/components/cookie-banner";
 import { focusRing } from "@/components/landing/cta-link";
 import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 import { Footer } from "@/components/landing/footer";
@@ -66,7 +67,7 @@ export default function PrivacyPage() {
 
           <Section title="Quais dados coletamos">
             <p>
-              <strong className="font-medium text-zinc-200">Dados de navegação.</strong> Com o Google Analytics 4, coletamos
+              <strong className="font-medium text-zinc-200">Dados de navegação.</strong> Com o Google Analytics 4 (somente se você aceitar os cookies), coletamos
               dados estatísticos de uso: páginas visitadas, cliques nos botões de WhatsApp, tipo de dispositivo, navegador,
               localização aproximada e identificadores em cookies. Não coletamos nome, telefone nem e-mail por este site.
             </p>
@@ -90,7 +91,8 @@ export default function PrivacyPage() {
 
           <Section title="Cookies e serviços de terceiros">
             <p>
-              O Google Analytics usa cookies para distinguir visitantes. O mapa da seção de localização é incorporado do
+              O Google Analytics usa cookies para distinguir visitantes e só é carregado depois que você clica em "Aceitar" no
+              aviso de cookies. Se recusar, nenhum cookie de análise é criado. O mapa da seção de localização é incorporado do
               Google Maps, que pode registrar o seu acesso. Os links para WhatsApp e Instagram levam a sites de terceiros, com
               políticas próprias.
             </p>
@@ -106,6 +108,7 @@ export default function PrivacyPage() {
               </a>
               .
             </p>
+            <CookiePreferencesButton />
           </Section>
 
           <Section title="Por quanto tempo guardamos">
