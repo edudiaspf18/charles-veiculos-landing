@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AtSign, MapPin, Phone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -36,6 +37,12 @@ export function Footer() {
         <div>
           <Logo className="h-16" />
           <p className="mt-5 text-sm text-zinc-500">CNPJ: 00.000.000/0001-00</p>
+          <Link
+            href="/privacidade"
+            className={cn("mt-3 inline-block rounded-sm text-sm text-zinc-400 underline underline-offset-4 transition-all duration-200 ease-in-out hover:text-white", focusRing)}
+          >
+            Política de Privacidade
+          </Link>
         </div>
         <address className="flex items-start gap-2 text-sm not-italic leading-relaxed text-zinc-400">
           <MapPin className="mt-0.5 size-4 shrink-0 text-zinc-500" aria-hidden />
