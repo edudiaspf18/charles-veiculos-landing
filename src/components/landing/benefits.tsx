@@ -9,7 +9,7 @@ import { focusRing } from "./cta-link";
 export function Benefits() {
   return (
     <section id="diferenciais" className="border-y border-white/10 bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:py-32">
         <div className="grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-12">
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
             Por que escolher a Charles Veículos?

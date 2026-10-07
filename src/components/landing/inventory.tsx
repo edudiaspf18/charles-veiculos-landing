@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, RotateCcw } from "lucide-react";
+import { ChevronDown, MessageCircle, RotateCcw } from "lucide-react";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Vehicle } from "@/data/vehicles";
 import { trackAttributes } from "@/lib/analytics";
 import {
   DEFAULT_FILTERS,
-  PRICE_RANGES,
   SORT_OPTIONS,
   TRANSMISSION_OPTIONS,
+  YEAR_RANGES,
   applyFilters,
   brandOptions,
   type InventoryFilters,
@@ -22,18 +22,19 @@ import { focusRing } from "./cta-link";
 import { VehicleCard } from "./vehicle-card";
 
 interface FilterSelectProps<T extends string> {
+  className?: string;
   label: string;
   value: T;
   options: Option<T>[];
   onChange: (value: T) => void;
 }
 
-function FilterSelect<T extends string>({ label, value, options, onChange }: FilterSelectProps<T>) {
+function FilterSelect<T extends string>({ className, label, value, options, onChange }: FilterSelectProps<T>) {
   return (
-    <label className="flex min-w-0 flex-col gap-2">
+    <label className={cn("flex min-w-0 flex-col gap-2", className)}>
       <span className="text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</span>
       <Select items={options} value={value} onValueChange={(next) => next !== null && onChange(next)}>
-        <SelectTrigger className="h-11 w-full rounded-full border-white/15 bg-black px-4 text-zinc-100 transition-all duration-200 ease-in-out hover:border-white/40 dark:bg-black dark:hover:bg-black">
+        <SelectTrigger className="h-11 w-full data-[size=default]:h-11 rounded-full border-white/15 bg-black px-4 text-zinc-100 transition-all duration-200 ease-in-out hover:border-white/40 dark:bg-black dark:hover:bg-black">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -49,16 +50,17 @@ function FilterSelect<T extends string>({ label, value, options, onChange }: Fil
 }
 
 interface SegmentedProps<T extends string> {
+  className?: string;
   label: string;
   value: T;
   options: Option<T>[];
   onChange: (value: T) => void;
 }
 
-function Segmented<T extends string>({ label, value, options, onChange }: SegmentedProps<T>) {
+function Segmented<T extends string>({ className, label, value, options, onChange }: SegmentedProps<T>) {
   return (
-    <fieldset className="flex min-w-0 flex-col gap-2">
-      <legend className="mb-2 text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</legend>
+    <div role="group" aria-label={label} className={cn("flex min-w-0 flex-col gap-2", className)}>
+      <span aria-hidden className="text-xs uppercase tracking-[0.25em] text-zinc-500">{label}</span>
       <div className="grid h-11 grid-cols-3 rounded-full border border-white/15 p-1">
         {options.map((option) => (
           <button
@@ -67,7 +69,7 @@ function Segmented<T extends string>({ label, value, options, onChange }: Segmen
             aria-pressed={option.value === value}
             onClick={() => onChange(option.value)}
             className={cn(
-              "rounded-full px-3 text-sm text-zinc-400 transition-all duration-200 ease-in-out hover:text-white",
+              "rounded-full px-2 text-sm text-zinc-400 transition-all duration-200 ease-in-out hover:text-white sm:px-3",
               option.value === value && "bg-white text-black hover:text-black",
               focusRing,
             )}
@@ -76,7 +78,7 @@ function Segmented<T extends string>({ label, value, options, onChange }: Segmen
           </button>
         ))}
       </div>
-    </fieldset>
+    </div>
   );
 }
 
@@ -123,39 +125,64 @@ function ResetButton({ onReset }: { onReset: () => void }) {
   );
 }
 
+const PAGE_SIZE = 9;
+
 export function Inventory({ vehicles }: { vehicles: Vehicle[] }) {
   const [filters, setFilters] = useState<InventoryFilters>(DEFAULT_FILTERS);
+  const [visible, setVisible] = useState(PAGE_SIZE);
   const results = applyFilters(vehicles, filters);
+  const shown = results.slice(0, visible);
+  const remaining = results.length - shown.length;
   const isFiltered = JSON.stringify(filters) !== JSON.stringify(DEFAULT_FILTERS);
 
   function update<K extends keyof InventoryFilters>(key: K, value: InventoryFilters[K]) {
     setFilters((current) => ({ ...current, [key]: value }));
+    setVisible(PAGE_SIZE);
   }
 
-  const reset = () => setFilters(DEFAULT_FILTERS);
+  const reset = () => {
+    setFilters(DEFAULT_FILTERS);
+    setVisible(PAGE_SIZE);
+  };
 
   return (
     <>
-      <div className="mt-14 grid gap-5 border-y border-white/10 py-6 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr_1fr]">
+      <div className="mt-10 grid grid-cols-2 gap-x-3 gap-y-4 border-y border-white/10 py-5 sm:mt-14 sm:gap-5 sm:py-6 lg:grid-cols-[1fr_1fr_1.3fr_1fr]">
         <FilterSelect label="Marca" value={filters.brand} options={brandOptions(vehicles)} onChange={(value) => update("brand", value)} />
-        <FilterSelect label="Preço" value={filters.price} options={PRICE_RANGES} onChange={(value) => update("price", value)} />
-        <Segmented label="Câmbio" value={filters.transmission} options={TRANSMISSION_OPTIONS} onChange={(value) => update("transmission", value)} />
-        <FilterSelect label="Ordenar por" value={filters.sort} options={SORT_OPTIONS} onChange={(value) => update("sort", value)} />
+        <FilterSelect label="Ano" value={filters.year} options={YEAR_RANGES} onChange={(value) => update("year", value)} />
+        <Segmented className="col-span-2 sm:col-span-1" label="Câmbio" value={filters.transmission} options={TRANSMISSION_OPTIONS} onChange={(value) => update("transmission", value)} />
+        <FilterSelect className="col-span-2 sm:col-span-1" label="Ordenar por" value={filters.sort} options={SORT_OPTIONS} onChange={(value) => update("sort", value)} />
       </div>
 
-      <div className="mt-6 flex min-h-11 items-center justify-between gap-4">
+      <div className="mt-5 flex min-h-11 items-center justify-between gap-4">
         <p aria-live="polite" className="text-sm text-zinc-400">
           <span className="font-semibold text-white">{results.length}</span> {results.length === 1 ? "veículo encontrado" : "veículos encontrados"}
         </p>
         {isFiltered && <ResetButton onReset={reset} />}
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {results.length === 0 && <EmptyState onReset={reset} />}
-        {results.map((vehicle) => (
+        {shown.map((vehicle) => (
           <VehicleCard key={vehicle.id} vehicle={vehicle} />
         ))}
       </div>
+
+      {remaining > 0 && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setVisible((count) => count + PAGE_SIZE)}
+            className={cn(
+              "inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/20 px-8 text-sm font-medium text-white transition-all duration-200 ease-in-out hover:border-white/50 sm:w-auto",
+              focusRing,
+            )}
+          >
+            Ver mais carros ({remaining})
+            <ChevronDown className="size-4" aria-hidden />
+          </button>
+        </div>
+      )}
     </>
   );
 }

@@ -33,7 +33,7 @@ function StatusBadge() {
   if (!status) return <span className="h-7" aria-hidden />;
 
   return (
-    <span className="inline-flex h-7 items-center gap-2 rounded-full border border-white/15 px-3 text-xs font-medium text-white">
+    <span className="inline-flex h-7 shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/15 px-3 text-xs font-medium text-white">
       <span className={cn("size-2 rounded-full", STATUS_DOT[status])} aria-hidden />
       {STATUS_LABEL[status]}
     </span>

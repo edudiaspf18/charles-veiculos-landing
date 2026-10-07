@@ -16,21 +16,9 @@ function StatsPanel() {
   );
 }
 
-function Wordmark() {
-  return (
-    <div aria-hidden className="pointer-events-none relative mx-auto max-w-7xl select-none px-5 sm:px-8">
-      <p className="bg-gradient-to-b from-white via-zinc-300 to-zinc-700 bg-clip-text text-center text-[21vw] font-black uppercase leading-[0.8] tracking-tighter text-transparent xl:text-[16rem]">
-        Charles
-      </p>
-      <div className="mt-4 h-px bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-      <p className="mt-4 text-right text-xs uppercase tracking-[0.6em] text-zinc-500 sm:text-sm">Veículos & Locadora</p>
-    </div>
-  );
-}
-
 export function Hero() {
   return (
-    <section id="inicio" className="relative isolate overflow-hidden bg-black pb-20 sm:pb-28">
+    <section id="inicio" className="relative isolate overflow-hidden bg-black pb-12 sm:pb-28">
       <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/4">
         <Image
           src="/cars/discovery-hse.jpg"
@@ -66,10 +54,6 @@ export function Hero() {
         <div className="lg:self-start lg:justify-self-end">
           <StatsPanel />
         </div>
-      </div>
-
-      <div className="mt-24 sm:mt-32">
-        <Wordmark />
       </div>
     </section>
   );

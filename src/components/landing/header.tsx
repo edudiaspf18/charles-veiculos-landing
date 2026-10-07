@@ -35,7 +35,7 @@ export function Header() {
           rel="noopener noreferrer"
           {...trackAttributes("header")}
           className={cn(
-            "inline-flex h-10 items-center gap-2 rounded-full border border-white/25 px-5 text-sm font-medium text-white transition-all duration-200 ease-in-out hover:border-white/60 hover:bg-white/5",
+            "inline-flex h-11 items-center gap-2 rounded-full border border-white/25 px-4 sm:px-5 text-sm font-medium text-white transition-all duration-200 ease-in-out hover:border-white/60 hover:bg-white/5",
             focusRing,
           )}
         >

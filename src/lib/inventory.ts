@@ -24,30 +24,30 @@ export const TRANSMISSION_OPTIONS: Option<TransmissionKey>[] = [
   { value: "automatic", label: "Automático" },
 ];
 
-interface PriceRange extends Option {
+interface YearRange extends Option {
   min: number;
   max: number;
 }
 
-export const PRICE_RANGES: PriceRange[] = [
-  { value: ALL, label: "Qualquer preço", min: 0, max: Infinity },
-  { value: "ate-50", label: "Até R$ 50 mil", min: 0, max: 50000 },
-  { value: "50-80", label: "R$ 50 a 80 mil", min: 50000, max: 80000 },
-  { value: "80-120", label: "R$ 80 a 120 mil", min: 80000, max: 120000 },
-  { value: "acima-120", label: "Acima de R$ 120 mil", min: 120000, max: Infinity },
+export const YEAR_RANGES: YearRange[] = [
+  { value: ALL, label: "Qualquer ano", min: 0, max: Infinity },
+  { value: "2023-mais", label: "2023 ou mais novo", min: 2023, max: Infinity },
+  { value: "2020-2022", label: "2020 a 2022", min: 2020, max: 2022 },
+  { value: "2015-2019", label: "2015 a 2019", min: 2015, max: 2019 },
+  { value: "ate-2014", label: "2014 ou mais antigo", min: 0, max: 2014 },
 ];
 
 export interface InventoryFilters {
   brand: string;
   transmission: TransmissionKey;
-  price: string;
+  year: string;
   sort: SortKey;
 }
 
 export const DEFAULT_FILTERS: InventoryFilters = {
   brand: ALL,
   transmission: ALL,
-  price: ALL,
+  year: ALL,
   sort: "featured",
 };
 
@@ -65,17 +65,18 @@ function matchesTransmission(vehicle: Vehicle, transmission: TransmissionKey): b
   return transmission === "automatic" ? isAutomatic(vehicle) : !isAutomatic(vehicle);
 }
 
-function matchesPrice(vehicle: Vehicle, price: string): boolean {
-  const range = PRICE_RANGES.find((option) => option.value === price);
-  if (!range) return true;
-  return vehicle.price >= range.min && vehicle.price < range.max;
-}
-
 /** Ano-modelo: "2023/24" vira 2024. */
 function modelYear(vehicle: Vehicle): number {
   const [build, model] = vehicle.year.split("/");
   if (!model) return Number(build);
   return Number(build.slice(0, 4 - model.length) + model);
+}
+
+function matchesYear(vehicle: Vehicle, year: string): boolean {
+  const range = YEAR_RANGES.find((option) => option.value === year);
+  if (!range) return true;
+  const value = modelYear(vehicle);
+  return value >= range.min && value <= range.max;
 }
 
 const COMPARATORS: Record<SortKey, ((a: Vehicle, b: Vehicle) => number) | null> = {
@@ -91,7 +92,7 @@ export function applyFilters(vehicles: Vehicle[], filters: InventoryFilters): Ve
     (vehicle) =>
       (filters.brand === ALL || vehicle.brand === filters.brand) &&
       matchesTransmission(vehicle, filters.transmission) &&
-      matchesPrice(vehicle, filters.price),
+      matchesYear(vehicle, filters.year),
   );
   const comparator = COMPARATORS[filters.sort];
   return comparator ? result.toSorted(comparator) : result;

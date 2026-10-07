@@ -5,7 +5,7 @@ import { Inventory } from "./inventory";
 export function Showcase() {
   return (
     <section id="estoque" className="scroll-mt-8 bg-black">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:py-32">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.35em] text-red-600">Estoque · {VEHICLES.length} veículos</p>

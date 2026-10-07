@@ -66,7 +66,7 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           <VehicleBadges vehicle={vehicle} />
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">{vehicle.brand}</p>
         <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
           {/* O ::after estende o link para o card inteiro; o botão de WhatsApp fica acima dele. */}
