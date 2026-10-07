@@ -54,9 +54,22 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-7xl px-5 py-6 text-xs leading-relaxed text-zinc-600 sm:px-8">
-          © {new Date().getFullYear()} Charles Veículos & Locadora. Preços, condições e disponibilidade sujeitos a alteração sem aviso prévio. Consulte a loja antes de fechar negócio.
-        </p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-xs leading-relaxed text-zinc-600 sm:px-8 md:flex-row md:items-end md:justify-between md:gap-12">
+          <p className="max-w-3xl">
+            © {new Date().getFullYear()} Charles Veículos & Locadora. Preços, condições e disponibilidade sujeitos a alteração sem aviso prévio. Consulte a loja antes de fechar negócio.
+          </p>
+          <p className="shrink-0">
+            Desenvolvido por{" "}
+            <a
+              href="https://www.instagram.com/dudu_diaspf/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn("rounded-sm font-medium text-zinc-400 underline-offset-4 transition-all duration-200 ease-in-out hover:text-white hover:underline", focusRing)}
+            >
+              Winner Tech
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
