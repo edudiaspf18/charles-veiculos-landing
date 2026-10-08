@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { blurProps } from "@/data/blur";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Fuel, Gauge, MessageCircle, Settings2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -59,6 +61,7 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           src={vehicle.image}
           alt={vehicleName(vehicle)}
           fill
+          {...blurProps(vehicle.image)}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-all duration-200 ease-in-out group-hover:scale-[1.02]"
         />

@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import heroPhoto from "../../../public/cars/discovery-hse.jpg";
+
 import { STATS } from "@/data/landing";
 import { CtaLink } from "./cta-link";
 
@@ -21,9 +23,10 @@ export function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden bg-black pb-12 sm:pb-28">
       <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/4">
         <Image
-          src="/cars/discovery-hse.jpg"
+          src={heroPhoto}
           alt=""
           fill
+          placeholder="blur"
           priority
           sizes="(min-width: 1024px) 75vw, 100vw"
           className="object-cover object-[65%_80%] lg:object-[center_40%]"

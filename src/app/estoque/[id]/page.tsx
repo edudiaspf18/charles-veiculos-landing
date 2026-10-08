@@ -10,6 +10,7 @@ import { Footer } from "@/components/landing/footer";
 import { Header } from "@/components/landing/header";
 import { VehicleBadges, VehicleSpecs, vehiclePath } from "@/components/landing/vehicle-card";
 import { VehicleGallery } from "@/components/landing/vehicle-gallery";
+import { blurProps } from "@/data/blur";
 import { VEHICLES, getVehicle, vehicleImages, vehicleMessage, vehicleName } from "@/data/vehicles";
 import { currency, kilometers } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -135,6 +136,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
                         src={other.image}
                         alt={vehicleName(other)}
                         fill
+                        {...blurProps(other.image)}
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover"
                       />

@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import toroPhoto from "../../../public/cars/toro-freedom-2022.jpg";
+
 import { CtaLink } from "./cta-link";
 
 export function FinalCta() {
@@ -19,9 +21,10 @@ export function FinalCta() {
           </div>
           <div className="relative min-h-72 lg:min-h-full">
             <Image
-              src="/cars/toro-freedom-2022.jpg"
+              src={toroPhoto}
               alt="Fiat Toro no showroom da Charles Veículos"
               fill
+              placeholder="blur"
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-top"
             />

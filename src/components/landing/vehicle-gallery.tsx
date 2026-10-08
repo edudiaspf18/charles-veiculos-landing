@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
+import { blurProps } from "@/data/blur";
+
 import { cn } from "@/lib/utils";
 import { focusRing } from "./cta-link";
 
@@ -22,6 +24,7 @@ export function VehicleGallery({ images, alt }: VehicleGalleryProps) {
           src={images[active]}
           alt={`${alt}, foto ${active + 1} de ${images.length}`}
           fill
+          {...blurProps(images[active])}
           priority
           sizes="(min-width: 1024px) 58vw, 100vw"
           className="object-cover"

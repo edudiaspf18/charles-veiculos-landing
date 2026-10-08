@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:types": "eslint --config eslint.typed.config.mjs .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "blur": "node scripts/gerar-blur.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.3.7",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5",
     "typescript-eslint": "^8.71.0"
